@@ -66,6 +66,9 @@ public class parallel_obst  {
     }
 
     public static void generateFrequency(int frequency[]){
+        /**
+         * Randomly generates the frequencies(between zero and hundred) for the keys
+         */
         int low=0,high=100;
         Random r = new Random();
         for(int i=0;i<frequency.length;i++){
@@ -100,11 +103,7 @@ public class parallel_obst  {
         }
         long t2 = System.nanoTime();
 
-     /*   for(i=0;i<cost.length;i++) {
-            for (j = 0; j < cost.length; j++)
-                System.out.print(cost[i][j]+" ");
-            System.out.println();
-        }*/
+
         System.out.println("Parallel Cost="+cost[1][n]);
         System.out.println("Parallel Time = "+(t2-t1)/Math.pow(10,9)+" seconds");
         System.out.println("In Serial");
