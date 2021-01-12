@@ -31,6 +31,8 @@ Which means we calculate c\[1,2] i.e. the minimum cost considering keys
 We can use the following formula to calculate c\[i,j] where k goes from 
 i to j.
 ![alt text](OBST_Formula.png)
+
+
 We store the minimum cost for c\[i,j].
  
 
