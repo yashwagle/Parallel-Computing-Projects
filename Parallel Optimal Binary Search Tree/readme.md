@@ -21,10 +21,36 @@ minimum cost. This program will have a factorial time complexity and
 the same sub-problems will be recomputed. Hence we attempt to solve this 
 program using dynamic programming.
 
+In this approach we create a two dimensional array (cost\[n]\[n]) to store the solutions
+of subproblems; cost\[i]\[j] specifies the minimum cost of the binary 
+search tree considering the keys i to j. We first calculate the cost 
+considering 2 keys, then 3 keys and so on until we cover all the keys. 
+Which means we calculate c\[1,2] i.e. the minimum cost considering keys
+1 and 2, then c\[2,3] and so on.
 
+We can use the following formula to calculate c\[i,j] where k goes from 
+i to j.
+![alt text](OBST_Formula.png)
+ We store the minimum cost for c\[i,j].
+ 
 
 ## Parallelize Solution 
+We can easily parallelize this solution using Threading. The cost 
+of constructing binary search trees with k keys can be calculated in
+parallel. For calculating the cost of a BST with k keys the cost of BSTs
+with k-1 keys is required. Hence there is no data dependence.
+Which means the cost of BSTs considering 2 keys can be calculated
+in parallel, then 3 keys can be calculated and so on. A graphical 
+representation of the steps performed in parallel can be seen below.
 
+
+![alt text](OBSTGraphicalSimulation.gif)
+The catch is that all the threads should have completed calculating the cost
+of BSTs with k keys before moving to calculating the cost of BSTs with k+1
+keys. To ensure this step this implementation uses a Barrier, which 
+will let each thread go ahead once all the threads have reached it.
+
+ 
 
 
 

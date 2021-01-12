@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3956c8c7-0204-4225-8018-d28bda1344b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parallel_obst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parallel_obst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606795668125</updated>
       <workItem from="1606795672444" duration="16151000" />
-      <workItem from="1609818680301" duration="4094000" />
+      <workItem from="1609818680301" duration="9267000" />
     </task>
     <servers />
   </component>
