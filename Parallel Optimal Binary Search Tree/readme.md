@@ -47,17 +47,46 @@ representation of the steps performed in parallel can be seen below.
 
 
 ![alt text](OBSTGraphicalSimulation.gif)
+
+
 The catch is that all the threads should have completed calculating the cost
 of BSTs with k keys before moving to calculating the cost of BSTs with k+1
 keys. To ensure this step this implementation uses a Barrier, which 
 will let each thread go ahead once all the threads have reached it.
 
  
+Case 1: N==P
+In this case, we have processors equal to the number of nodes. For this case, my approach will
+generate P threads and each thread will work on one row of the matrix.
+
+![alt text](ThreadExecution1.png)
+The thread which works on the first row will take the maximum time since it needs to do the
+maximum number of computations. For n=4 it needs to compute the trees of size 2,3,4. For n=5
+it needs to compute trees of size 2,3,4,5. Hence the complexity of the first thread will be O( n<sup>2</sup> ).
+When performed serially the complexity is O( n<sup>3</sup> ). In both cases, I am storing the sum of
+probabilities in an array and taking constant time to calculate the sum.
 
 
+Case 2:N>>P
+In this case, each thread will compute the values for N/P rows. Hence the time complexity for
+this program will be O( n<sup>3</sup>/ P ). Since we will have P threads running at a particular time.
+Speedup = Ts/Tp = n<sup>3</sup> * P / n<sup>3</sup> = P
 
+![alt text](ThreadExecution2.png)
+
+##Results
+![alt text](DataSizeVsTime.png)
+
+Time in seconds v/s number of keys colors specify the number of threads
+
+Bar chart of the same data
+![alt text](DataVsTimeBarChart.png) 
 
 ## Running the Program
+Given the number of keys the  program will randomly generate the frequencies for these keys
+and generate the cost matrix
+
+
 To run parallel_obst
 
 
