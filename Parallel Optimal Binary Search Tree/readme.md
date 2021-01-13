@@ -79,7 +79,7 @@ Speedup = Ts/Tp = n<sup>3</sup> * P / n<sup>3</sup> = P
 
 ![alt text](DataSizeVsTime.png)
 
-Time in seconds v/s number of keys colors specify the number of threads
+Time in seconds v/s number of keys colors; specify the number of threads
 
 Bar chart of the same data
 
