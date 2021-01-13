@@ -1,4 +1,4 @@
-#Optimal Binary Search Trees
+# Optimal Binary Search Trees
 In this problem given a set of keys and their access frequencies, we have
 to construct a BST such that the least overall access time is achieved. For
 example suppose we have two keys [10,15] with frequencies as [10,30]. 
