@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3956c8c7-0204-4225-8018-d28bda1344b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Bitonic Sort/Bitonic Sort.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bitonic Sort/comparators.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bitonic Sort/bitonic.c" beforeDir="false" afterPath="$PROJECT_DIR$/../Bitonic Sort/bitonic.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bitonic Sort/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bitonic Sort/yw5262Parallel2.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parallel_Project3_yw5262.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serial_obst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serial_obst.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +85,9 @@
       <updated>1606795668125</updated>
       <workItem from="1606795672444" duration="16151000" />
       <workItem from="1609818680301" duration="11431000" />
-      <workItem from="1610504397824" duration="711000" />
+      <workItem from="1610504397824" duration="779000" />
+      <workItem from="1614176456410" duration="82000" />
+      <workItem from="1614818122239" duration="10000" />
     </task>
     <servers />
   </component>

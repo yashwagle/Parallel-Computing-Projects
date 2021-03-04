@@ -1,7 +1,8 @@
 import java.util.Random;
+import java.util.TreeSet;
 
 public class serial_obst {
-
+    TreeSet<>
     int n;
     int cost[][];
     int frequency[];

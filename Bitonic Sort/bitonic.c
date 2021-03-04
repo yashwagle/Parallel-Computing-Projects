@@ -43,10 +43,10 @@ clock_t start_time,end_time;
   MPI_Comm_size (MPI_COMM_WORLD, &size);	/* get number of processes */
   const int subarraySize = datasize/size;
   int rbuf[subarraySize];
-    get_random_array(arr,n);
+   get_random_array(arr,n); /* generate the random array */
 
 
-start_time = clock();
+    start_time = clock();
       MPI_Scatter( arr, datasize/size, MPI_INT, rbuf, datasize/size, MPI_INT, 0, MPI_COMM_WORLD);
       perProcess = datasize/size;
       start = 1;
@@ -121,15 +121,7 @@ start_time = clock();
       }
       start++;
       }
-    //  printf("Bitonic generate\n");
 
-
-//        MPI_Gather(rbuf,perProcess,MPI_INT,arr,perProcess,MPI_INT,0,MPI_COMM_WORLD);
-
-
-  //---------------------------------------Bitonic Logic
-  //  MPI_Scatter( arr, datasize/size, MPI_INT, rbuf, datasize/size, MPI_INT, 0, MPI_COMM_WORLD);
-    //printf("%d %d %d %d in process %d \n",rbuf[0],rbuf[1], rbuf[2],rbuf[3], rank);
     steps = floor(log10(datasize)/log10(2));
     perProcess = datasize/size;
     for(i=steps;i>0;i--){
@@ -137,14 +129,11 @@ start_time = clock();
           currelement = rank*perProcess + j;
           nextElement = currelement ^ (1<<(i-1));
           nextProcess = nextElement/perProcess;
-          //printf("Rank = %d current element = %d nextElement = %d nextProcess=%d\n",rank,currelement,nextElement,nextProcess );
 
             if(nextProcess!=rank){
                  if(nextProcess>rank){
               sendbuf = rbuf[j];
-            //  printf("Waiting to send on rank =%d with nextProcess=%d \n",rank,nextProcess );
               MPI_Send(&sendbuf,1,MPI_INT, nextProcess,0,MPI_COMM_WORLD);
-            //  printf("Waiting to recieve on rank =%d with nextProcess=%d \n",rank,nextProcess );
 
               MPI_Recv(&recievebuf,1,MPI_INT,nextProcess,0,MPI_COMM_WORLD,&Stat);
               if(recievebuf<sendbuf)
@@ -152,9 +141,7 @@ start_time = clock();
               }
               else{
                 sendbuf = rbuf[j];
-              //  printf("Waiting to recieve on rank =%d with nextProcess=%d \n",rank,nextProcess );
                 MPI_Recv(&recievebuf,1,MPI_INT,nextProcess,0,MPI_COMM_WORLD,&Stat);
-            //    printf("Waiting to send on rank =%d with nextProcess=%d \n",rank,nextProcess );
                 MPI_Send(&sendbuf,1,MPI_INT, nextProcess,0,MPI_COMM_WORLD);
 
                 if(recievebuf>sendbuf)
