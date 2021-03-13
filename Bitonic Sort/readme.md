@@ -35,8 +35,56 @@ decreasing comparator circuits.
 Now we can easily combine the two to get 
 a sorted array 
 
-## Implementation
+Image reference:
+https://wiki.rice.edu/confluence/download/attachments/4435861/comp322-s12-lec28-slides-JMC.pdf
 
+## Implementation
+Bitonic sort is implemented using Message 
+Passing Interface(MPI) in C.
+
+The first step is generating a bitonic
+sequence.
+
+If we closely look at the algorithm
+generating the bitonic sequence then we 
+can find the pattern. In the first
+step each process compares with another
+process that differs at the first bit. 
+In the second step with the process that differs 
+at the second step and so on. This continues 
+until the process number reaches log(p) and then
+we move back in.
+
+Initially all the elements are distributed  across
+the processes using scatter. 
+Then to convert it into a bitonic
+sequence each process will calculate two things:
+1. Index of the next element
+2. It is a positive comparator circuit or a negative
+comparator circuit
+
+Now there can be three scenarios:
+ 1. the next element
+is present on the same process
+ 2. the next element is present on a process with rank less than the current
+process
+3. the next element is present on a process with
+rank greater than the current process.
+
+No communication is required for the first scenario,
+but data needs to be sent across processors for 
+the second and third scenarios. The logic for data 
+transfer is first process with the lower rank will
+send data and then the process with higher rank will
+send data. Blocking send and receive calls are used
+for data transfer. Finally the entire array is 
+assembled at the process with rank 0 using the 
+gather operation.
+
+
+ 
+
+ 
 ## Results
 ![alt text](timevsdata.png)
 
